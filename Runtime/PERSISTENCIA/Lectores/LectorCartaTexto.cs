@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Ging1991.Persistencia.Lectores;
 
-namespace Bounds.Modulos.Persistencia {
+namespace Bounds.Persistencia {
 
 	public class LectorCartaTexto : LectorMapa<int, string> {
 
