@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Bounds.Modulos.Persistencia;
+using Bounds.Persistencia.Datos;
 using Bounds.Persistencia.Lectores;
 using Ging1991.Core;
 

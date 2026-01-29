@@ -1,4 +1,4 @@
-namespace Bounds.Persistencia {
+namespace Bounds.Persistencia.Datos {
 
 	public class CartaColeccionBD {
 

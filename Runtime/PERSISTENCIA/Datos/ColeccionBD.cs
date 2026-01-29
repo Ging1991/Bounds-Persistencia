@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Bounds.Modulos.Persistencia {
+namespace Bounds.Persistencia.Datos {
 
 	[System.Serializable]
 	public class ColeccionBD {

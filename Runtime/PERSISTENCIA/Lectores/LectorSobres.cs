@@ -1,6 +1,7 @@
-﻿using Ging1991.Persistencia.Lectores;
+﻿using Bounds.Persistencia.Datos;
+using Ging1991.Persistencia.Lectores;
 
-namespace Bounds.Persistencia {
+namespace Bounds.Persistencia.Lectores {
 
 	public class LectorSobres : LectorGenerico<ListaDato<SobreBD>> {
 

@@ -7,6 +7,7 @@ namespace Bounds.Persistencia.Parametros {
 	public class ParametrosEscena : ScriptableObject {
 
 		public Dictionary<string, string> direcciones;
+		public string escenaPadre;
 
 		[System.NonSerialized]
 		public bool inicializado = false;

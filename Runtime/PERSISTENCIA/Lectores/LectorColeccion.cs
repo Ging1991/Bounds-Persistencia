@@ -1,4 +1,4 @@
-﻿using Bounds.Modulos.Persistencia;
+﻿using Bounds.Persistencia.Datos;
 using Ging1991.Persistencia.Lectores;
 
 namespace Bounds.Persistencia.Lectores {

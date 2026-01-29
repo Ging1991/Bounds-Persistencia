@@ -1,4 +1,7 @@
-﻿namespace Bounds.Persistencia {
+﻿using Bounds.Persistencia.Datos;
+using Bounds.Persistencia.Lectores;
+
+namespace Bounds.Persistencia {
 
 	public class GestorDeSobres {
 
