@@ -11,20 +11,6 @@ namespace Bounds.Persistencia {
 			lector = new LectorConfiguracion(direccion);
 		}
 
-		public bool GastarOro(int cantidad) {
-			ConfiguracionBD datos = lector.Leer();
-			if (datos.oro < cantidad)
-				return false;
-			datos.oro -= cantidad;
-			lector.Guardar();
-			return true;
-		}
-
-
-		public void GanarOro(int cantidad) {
-			GuardarOro(lector.Leer().oro += cantidad);
-		}
-
 
 		public string GetIdioma() {
 			return lector.Leer().idioma;
@@ -33,13 +19,6 @@ namespace Bounds.Persistencia {
 
 		public void SetIdioma(string idioma) {
 			lector.Leer().idioma = idioma;
-			lector.Guardar();
-		}
-
-
-		private void GuardarOro(int cantidad) {
-			ConfiguracionBD datos = lector.Leer();
-			datos.oro = cantidad;
 			lector.Guardar();
 		}
 
@@ -101,10 +80,6 @@ namespace Bounds.Persistencia {
 			return lector.Leer().inicioPersonaje;
 		}
 
-
-		public int LeerOro() {
-			return lector.Leer().oro;
-		}
 
 	}
 
