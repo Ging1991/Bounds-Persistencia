@@ -23,6 +23,17 @@ namespace Bounds.Persistencia {
 		}
 
 
+		public string GetNombre() {
+			return lector.Leer().nombre;
+		}
+
+
+		public void SetNombre(string nombre) {
+			lector.Leer().nombre = nombre;
+			lector.Guardar();
+		}
+
+
 		public void GuardarCapituloLeccion(int capitulo) {
 			if (capitulo > 9 || capitulo < 1) {
 				capitulo = 1;
