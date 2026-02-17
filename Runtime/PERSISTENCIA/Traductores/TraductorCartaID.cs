@@ -1,9 +1,10 @@
 using System.Collections.Generic;
+using Ging1991.Core.Interfaces;
 using Ging1991.Persistencia.Lectores;
 
 namespace Bounds.Modulos.Persistencia {
 
-	public class TraductorCartaID : ISelectorXXX<int, string> {
+	public class TraductorCartaID : ISelector<int, string> {
 
 		private readonly Dictionary<int, string> datos;
 

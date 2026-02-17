@@ -1,6 +1,6 @@
 {
 	"name": "com.bounds.tcg.modulos.persistencia",
-	"version": "3.2.0",
+	"version": "3.3.0",
 	"displayName": "Bounds - Persistencia",
 	"description": "Módulo de persistencia para Bounds TCG",
 	"unity": "2021.3",
