@@ -5,21 +5,23 @@ using UnityEngine;
 
 namespace Bounds.Modulos.Persistencia {
 
-	public class IlustradorRecursos : ISelector<string, Sprite> {
+	public abstract class Ilustrador : ISelector<string, Sprite> {
 
-		private readonly DireccionRecursos direccionRecursos;
+		private readonly Direccion direccionCarpeta;
 		private readonly Dictionary<string, Sprite> datos;
 
-		public IlustradorRecursos(DireccionRecursos direccionRecursos) {
-			this.direccionRecursos = direccionRecursos;
+		public Ilustrador(Direccion direccionCarpeta) {
+			this.direccionCarpeta = direccionCarpeta;
 		}
 
 		public Sprite GetElemento(string nombre) {
 			if (!datos.ContainsKey(nombre)) {
-				datos.Add(nombre, Resources.Load<Sprite>(direccionRecursos.Generar(nombre)));
+				datos.Add(nombre, LeerImagen(direccionCarpeta.Generar(nombre)));
 			}
 			return datos[nombre];
 		}
+
+		protected abstract Sprite LeerImagen(string direccion);
 
 	}
 
