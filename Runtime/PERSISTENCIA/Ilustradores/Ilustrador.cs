@@ -12,6 +12,7 @@ namespace Bounds.Modulos.Persistencia {
 
 		public Ilustrador(Direccion direccionCarpeta) {
 			this.direccionCarpeta = direccionCarpeta;
+			datos = new();
 		}
 
 		public Sprite GetElemento(string nombre) {
