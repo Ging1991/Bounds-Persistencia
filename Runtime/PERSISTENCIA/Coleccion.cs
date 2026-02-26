@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Bounds.Persistencia.Datos;
 using Bounds.Persistencia.Lectores;
 using Ging1991.Core;
+using UnityEngine;
 
 namespace Bounds.Persistencia {
 
@@ -56,25 +57,38 @@ namespace Bounds.Persistencia {
 
 		public Sobre CrearSobre() {
 			Sobre sobre = new();
-			sobre.comunes.Add(Azar<CartaColeccionBD>.ValorAleatorio(comunes));
-			sobre.comunes.Add(Azar<CartaColeccionBD>.ValorAleatorio(comunes));
-			sobre.comunes.Add(Azar<CartaColeccionBD>.ValorAleatorio(comunes));
-			sobre.infrecuentes.Add(Azar<CartaColeccionBD>.ValorAleatorio(infrecuentes));
-			sobre.infrecuentes.Add(Azar<CartaColeccionBD>.ValorAleatorio(infrecuentes));
-			sobre.rarezaSobre = Azar<string>.ValorAleatorio(new List<string>() { "MIT", "ORO", "ORO", "MIT", "ORO", "ORO", "MIT", "ORO", "ORO", "SEC" });
-			if (sobre.rarezaSobre == "SEC" && secretas != null && secretas.Count > 0) {
-				sobre.rara = Azar<CartaColeccionBD>.ValorAleatorio(secretas);
-			}
-			else if (sobre.rarezaSobre == "MIT") {
-				sobre.rara = Azar<CartaColeccionBD>.ValorAleatorio(miticas);
-			}
-			else {
-				sobre.rarezaSobre = "ORO";
+
+			for (int i = 0; i < 3; i++)
+				sobre.comunes.Add(Azar<CartaColeccionBD>.ValorAleatorio(comunes));
+
+			for (int i = 0; i < 2; i++)
+				sobre.infrecuentes.Add(Azar<CartaColeccionBD>.ValorAleatorio(infrecuentes));
+
+			sobre.rarezaSobre = CalcularRareza();
+
+			if (sobre.rarezaSobre == "ORO")
 				sobre.rara = Azar<CartaColeccionBD>.ValorAleatorio(raras);
+			else if (sobre.rarezaSobre == "MIT")
+				sobre.rara = Azar<CartaColeccionBD>.ValorAleatorio(miticas);
+			else if (sobre.rarezaSobre == "SEC" && secretas != null && secretas.Count > 0)
+				sobre.rara = Azar<CartaColeccionBD>.ValorAleatorio(secretas);
+			else {
+				sobre.rara = Azar<CartaColeccionBD>.ValorAleatorio(raras);
+				sobre.rarezaSobre = "ORO";
 			}
+
 			return sobre;
 		}
 
+		private string CalcularRareza() {
+			if (Random.value < 0.20f) {
+				if (Random.value < 0.20f) {
+					return "SEC";
+				}
+				return "MIT";
+			}
+			return "ORO";
+		}
 
 	}
 
