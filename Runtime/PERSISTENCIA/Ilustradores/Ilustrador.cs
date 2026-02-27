@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Bounds.Modulos.Persistencia {
 
-	public abstract class Ilustrador : ISelector<string, Sprite> {
+	public abstract class Ilustrador : IProveedor<string, Sprite> {
 
 		private readonly Direccion direccionCarpeta;
 		private readonly Dictionary<string, Sprite> datos;

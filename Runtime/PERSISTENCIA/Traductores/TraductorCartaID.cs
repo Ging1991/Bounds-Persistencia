@@ -4,7 +4,7 @@ using Ging1991.Persistencia.Lectores;
 
 namespace Bounds.Modulos.Persistencia {
 
-	public class TraductorCartaID : ISelector<int, string> {
+	public class TraductorCartaID : IProveedor<int, string> {
 
 		private readonly Dictionary<int, string> datos;
 

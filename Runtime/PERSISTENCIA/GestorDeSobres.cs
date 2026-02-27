@@ -1,5 +1,7 @@
-﻿using Bounds.Persistencia.Datos;
+﻿using System.Collections.Generic;
+using Bounds.Persistencia.Datos;
 using Bounds.Persistencia.Lectores;
+using Ging1991.Dialogos.Persistencia;
 
 namespace Bounds.Persistencia {
 
@@ -10,7 +12,10 @@ namespace Bounds.Persistencia {
 		public GestorDeSobres(string direccion) {
 			lector = new(direccion);
 			if (!lector.ExistenDatos()) {
-				lector.Guardar(new ListaDato<SobreBD>());
+				LectorLista<SobreBD>.DatoBD<SobreBD> datoBD = new() {
+					lista = new List<SobreBD>()
+				};
+				lector.Guardar(datoBD);
 			}
 		}
 
@@ -36,13 +41,13 @@ namespace Bounds.Persistencia {
 		private void CrearSobreSiNoExiste(string coleccion) {
 			SobreBD sobre = lector.GetSobre(coleccion);
 			if (sobre == null) {
-				ListaDato<SobreBD> datoLista = lector.Leer();
+				List<SobreBD> datoLista = lector.GetLista();
 				sobre = new() {
 					nombre = coleccion,
 					cantidad = 0
 				};
-				datoLista.lista.Add(sobre);
-				lector.Guardar(datoLista);
+				datoLista.Add(sobre);
+				lector.Guardar();
 			}
 		}
 
@@ -50,9 +55,9 @@ namespace Bounds.Persistencia {
 		private void EliminarSobreSiEstaVacio(string coleccion) {
 			SobreBD sobre = lector.GetSobre(coleccion);
 			if (sobre != null && sobre.cantidad == 0) {
-				ListaDato<SobreBD> datoLista = lector.Leer();
-				datoLista.lista.Remove(sobre);
-				lector.Guardar(datoLista);
+				List<SobreBD> datoLista = lector.GetLista();
+				datoLista.Remove(sobre);
+				lector.Guardar();
 			}
 		}
 
