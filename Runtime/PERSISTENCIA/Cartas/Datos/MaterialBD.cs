@@ -6,6 +6,7 @@ namespace Bounds.Modulos.Cartas.Persistencia.Datos {
 		public string tipo;
 		public string parametroClase;
 		public string parametroTipo;
+		public string parametroInvocacion;
 		public int parametroID;
 		public int parametroATK;
 		public int parametroDEF;
