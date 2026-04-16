@@ -1,5 +1,7 @@
-using Bounds.Modulos.Persistencia;
+using Bounds.Persistencia.proveedores;
 using Ging1991.Interfaces.Personalizacion;
+using Ging1991.Persistencia.Lectores;
+using Ging1991.Persistencia.Proveedores;
 using UnityEngine;
 
 namespace Bounds.Persistencia {
@@ -9,7 +11,10 @@ namespace Bounds.Persistencia {
 		public ControlUI controlUI;
 
 		public void Personalizar(string direccionTexto, string direccionColor) {
-			controlUI.Inicializar(new TraductorColor(direccionColor), new TraductorTexto(direccionTexto));
+			controlUI.Inicializar(
+				new ProveedorColores(direccionColor, TipoLector.RECURSOS),
+				new ProveedorTexto(direccionTexto, TipoLector.RECURSOS)
+			);
 			controlUI.ActualizarUI();
 		}
 
