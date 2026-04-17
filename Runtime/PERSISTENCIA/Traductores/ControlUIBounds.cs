@@ -4,7 +4,7 @@ using Ging1991.Persistencia.Lectores;
 using Ging1991.Persistencia.Proveedores;
 using UnityEngine;
 
-namespace Bounds.Persistencia {
+namespace Bounds.Persistencia {//
 
 	public class ControlUIBounds : MonoBehaviour {
 
