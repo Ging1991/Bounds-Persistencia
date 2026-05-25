@@ -1,6 +1,6 @@
 {
     "name": "Bounds.Persistencia",
-    "rootNamespace": "Bounds.Modulos.Persistencia",
+    "rootNamespace": "Bounds.Persistencia",
     "references": [
         "Ging1991.Core",
         "Ging1991.Ventanas",
