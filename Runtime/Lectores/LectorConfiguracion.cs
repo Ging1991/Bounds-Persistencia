@@ -7,12 +7,13 @@ namespace Bounds.Persistencia.Lectores {
 
 		public LectorConfiguracion(string direccion) : base(direccion, TipoLector.DINAMICO) {
 			if (!ExistenDatos()) {
-				ConfiguracionBD dato = new();
-				dato.capituloHistoria = 1;
-				dato.capituloLeccion = 1;
-				dato.inicioCarta = 7;
-				dato.inicioPersonaje = 1;
-				dato.idioma = "ESPAÑOL";
+				ConfiguracionBD dato = new() {
+					capituloHistoria = 1,
+					capituloLeccion = 1,
+					inicioCarta = 7,
+					inicioPersonaje = 1,
+					idioma = "ESPAÑOL"
+				};
 				Guardar(dato);
 			}
 		}
