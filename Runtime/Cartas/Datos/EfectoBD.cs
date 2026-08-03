@@ -4,6 +4,9 @@ namespace Bounds.Modulos.Cartas.Persistencia.Datos {
 	public class EfectoBD : IClonableCustom<EfectoBD> {
 
 		public string clave;
+		public bool sinDescripcion;
+		public bool sinPunto;
+		public bool sinSalto;
 		public string parametroTipo;
 		public string parametroPerfeccion;
 		public string parametroClase;
