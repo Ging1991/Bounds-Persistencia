@@ -17,7 +17,7 @@ namespace Bounds.Persistencia {
 		public List<CartaColeccionBD> raras;
 		public List<CartaColeccionBD> miticas;
 		public List<CartaColeccionBD> secretas;
-
+		public List<CartaColeccionBD> legendarias;
 
 		public Coleccion(string codigo, string direccion) {
 			LectorColeccion lector = new LectorColeccion(direccion);
@@ -28,12 +28,12 @@ namespace Bounds.Persistencia {
 			raras = Convertir(datos.raras);
 			miticas = Convertir(datos.miticas);
 			secretas = Convertir(datos.secretas);
+			legendarias = Convertir(datos.legendarias);
 			this.codigo = codigo;
 			titulo = datos.titulo;
 			nombre = datos.nombre;
 			emblema = new CartaColeccionBD(datos.emblema);
 		}
-
 
 		public List<CartaColeccionBD> GetListaCompleta() {
 			List<CartaColeccionBD> lista = new();
@@ -42,9 +42,9 @@ namespace Bounds.Persistencia {
 			lista.AddRange(raras);
 			lista.AddRange(miticas);
 			lista.AddRange(secretas);
+			lista.AddRange(legendarias);
 			return lista;
 		}
-
 
 		private List<CartaColeccionBD> Convertir(List<string> claves) {
 			List<CartaColeccionBD> CartaColeccionBDs = new();
@@ -53,7 +53,6 @@ namespace Bounds.Persistencia {
 			}
 			return CartaColeccionBDs;
 		}
-
 
 		public Sobre CrearSobre() {
 			Sobre sobre = new();
@@ -72,6 +71,8 @@ namespace Bounds.Persistencia {
 				sobre.rara = Azar<CartaColeccionBD>.ValorAleatorio(miticas);
 			else if (sobre.rarezaSobre == "SEC" && secretas != null && secretas.Count > 0)
 				sobre.rara = Azar<CartaColeccionBD>.ValorAleatorio(secretas);
+			else if (sobre.rarezaSobre == "LEG" && legendarias != null && legendarias.Count > 0)
+				sobre.rara = Azar<CartaColeccionBD>.ValorAleatorio(legendarias);
 			else {
 				sobre.rara = Azar<CartaColeccionBD>.ValorAleatorio(raras);
 				sobre.rarezaSobre = "ORO";
@@ -83,6 +84,9 @@ namespace Bounds.Persistencia {
 		private string CalcularRareza() {
 			if (Random.value < 0.20f) {
 				if (Random.value < 0.20f) {
+					if (Random.value < 0.20f) {
+						return "LEG";
+					}
 					return "SEC";
 				}
 				return "MIT";

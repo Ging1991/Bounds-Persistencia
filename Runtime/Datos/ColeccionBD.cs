@@ -14,6 +14,7 @@ namespace Bounds.Persistencia.Datos {
 		public List<string> raras;
 		public List<string> miticas;
 		public List<string> secretas;
+		public List<string> legendarias;
 
 	}
 
