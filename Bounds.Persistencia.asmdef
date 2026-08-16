@@ -4,6 +4,7 @@
     "references": [
         "Ging1991.Core",
         "Ging1991.Ventanas",
+        "Ging1991.Idiomas",
         "Ging1991.Interfaces",
         "Ging1991.Persistencia"
     ],
